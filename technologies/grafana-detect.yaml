@@ -1,0 +1,20 @@
+id: grafana-detect
+
+info:
+  name: Grafana Detection
+  author: abdilahrf
+  severity: informative
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "grafana-app"
+        part: body
+      - type: status
+        status:
+          - 200 
